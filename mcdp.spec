@@ -1,5 +1,5 @@
-Summary:	Text mode cd player
-Summary(pl):	Tekstowy odtwarzacz p造t cd
+Summary:	Text mode CD player
+Summary(pl):	Tekstowy odtwarzacz p造t CD
 Name:		mcdp
 Version:	0.4
 Release:	1
@@ -10,29 +10,37 @@ Source0:	http://www.mcmilk.de/projects/mcdp/dl/latest.tar.bz2
 URL:		http://www.mcmilk.de/projects/mcdp/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		specflags	-fomit-frame-pointer
+
 %description
-mcdp is a small (maybe the smallest) cd-player for linux.
+mcdp is a small (maybe the smallest) CD-player for linux.
 
 %description -l pl
-mcdp jest ma造m (prawdopodobnie najmniejszym) odtwarzaczem p造t cd pod
-linuksa.
+mcdp jest ma造m (prawdopodobnie najmniejszym) odtwarzaczem p造t CD pod
+Linuksa.
 
 %prep
 %setup -q
 
 %build
-rm -f missing
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
-%{__make} install BINDIR="$RPM_BUILD_ROOT%{_bindir}" MANDIR="$RPM_BUILD_ROOT%{_mandir}"
+
+%{__make} install \
+	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
+	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/AUTHOR doc/THANKS doc/REQUIREMENTS doc/WISHLIST doc/profile.sh doc/README doc/TODO doc/CHANGES
+%doc doc/{AUTHOR,CHANGES,README,REQUIREMENTS,THANKS,TODO,WISHLIST,profile.sh}
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
