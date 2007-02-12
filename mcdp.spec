@@ -1,5 +1,5 @@
 Summary:	Text mode CD player
-Summary(pl):	Tekstowy odtwarzacz p≥yt CD
+Summary(pl.UTF-8):   Tekstowy odtwarzacz p≈Çyt CD
 Name:		mcdp
 Version:	0.4
 Release:	1
@@ -15,8 +15,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 mcdp is a small (maybe the smallest) CD-player for linux.
 
-%description -l pl
-mcdp jest ma≥ym (prawdopodobnie najmniejszym) odtwarzaczem p≥yt CD pod
+%description -l pl.UTF-8
+mcdp jest ma≈Çym (prawdopodobnie najmniejszym) odtwarzaczem p≈Çyt CD pod
 Linuksa.
 
 %prep
