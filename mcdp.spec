@@ -1,5 +1,5 @@
 Summary:	Text mode CD player
-Summary(pl.UTF-8):   Tekstowy odtwarzacz płyt CD
+Summary(pl.UTF-8):	Tekstowy odtwarzacz płyt CD
 Name:		mcdp
 Version:	0.4
 Release:	1
